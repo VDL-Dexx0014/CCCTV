@@ -2,15 +2,23 @@ import { google } from 'googleapis';
 import type { FormConfig, FormData } from './types';
 
 function getAuth() {
-  const email = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
-  // Handle both escaped \n (copied from JSON file) and real newlines (direct paste)
-  const rawKey = process.env.GOOGLE_PRIVATE_KEY ?? '';
-  const key = rawKey.includes('\\n') ? rawKey.replace(/\\n/g, '\n') : rawKey;
+  // Prefer GOOGLE_CREDENTIALS (base64-encoded JSON file) — avoids all newline issues on Vercel.
+  // Falls back to individual GOOGLE_SERVICE_ACCOUNT_EMAIL + GOOGLE_PRIVATE_KEY if not set.
+  let email: string;
+  let key: string;
+
+  if (process.env.GOOGLE_CREDENTIALS) {
+    const json = JSON.parse(Buffer.from(process.env.GOOGLE_CREDENTIALS, 'base64').toString('utf8'));
+    email = json.client_email;
+    key = json.private_key;
+  } else {
+    email = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL ?? '';
+    const rawKey = process.env.GOOGLE_PRIVATE_KEY ?? '';
+    key = rawKey.includes('\\n') ? rawKey.replace(/\\n/g, '\n') : rawKey;
+  }
 
   if (!email || !key) {
-    throw new Error(
-      'Missing Google credentials. Set GOOGLE_SERVICE_ACCOUNT_EMAIL and GOOGLE_PRIVATE_KEY in your environment.'
-    );
+    throw new Error('Missing Google credentials. Set GOOGLE_CREDENTIALS (base64 JSON) in your environment.');
   }
 
   return new google.auth.GoogleAuth({

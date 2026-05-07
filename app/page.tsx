@@ -5,21 +5,21 @@ const partners = [
     href: '/broadcasters',
     title: 'Broadcasters',
     description:
-      'CTV ad serving, SSP and DSP integrations, data and identity strategy, cleanrooms, measurement, and your vision for the ideal stack.',
+      'CTV ad serving, SSP and DSP integrations, data and identity strategy, cleanrooms, Numeris and measurement, CanCon considerations, and your vision for the ideal Canadian stack.',
     time: '10–15 min',
   },
   {
     href: '/agencies',
     title: 'Agency Groups & Client-Direct',
     description:
-      'DSP buying workflows, audience data tools, cleanrooms, identity resolution, measurement, pain points, and your ideal unified CTV system.',
+      'DSP buying workflows, Canadian audience data tools, cleanrooms, identity resolution, Numeris and measurement, pain points, and your ideal unified CTV system for the Canadian market.',
     time: '10–15 min',
   },
   {
     href: '/technology-suppliers',
     title: 'Technology Suppliers',
     description:
-      'DSP and broadcaster integrations, cleanroom capabilities, identity support, supply path optimisation, ecosystem gaps, and your product roadmap.',
+      'DSP and Canadian broadcaster integrations, cleanroom capabilities, identity support, supply path optimisation, Canadian data residency, ecosystem gaps, and your product roadmap.',
     time: '10–15 min',
   },
 ];
@@ -41,15 +41,16 @@ export default function HomePage() {
       <div className="max-w-3xl mx-auto px-6 py-14">
         <div className="mb-10">
           <h1 className="text-3xl font-bold text-gray-900 mb-4" style={{ color: 'var(--brand-heading)' }}>
-            CTV Ecosystem Technology Survey
+            Canadian CTV Ecosystem Technology Survey
           </h1>
           <p className="text-gray-500 text-base leading-relaxed max-w-2xl">
-            We are conducting a structured mapping of how the CTV ecosystem operates today — spanning ad serving,
-            programmatic infrastructure, data collaboration, identity, and measurement — and what an ideal future
-            state looks like across broadcasters, agencies, and technology suppliers.
+            We are conducting a structured mapping of how the Canadian CTV ecosystem operates today — spanning
+            ad serving, programmatic infrastructure, data collaboration, identity, and measurement — and what an
+            ideal future state looks like across Canadian broadcasters, agencies, and technology suppliers.
           </p>
           <p className="text-gray-500 text-base leading-relaxed mt-3 max-w-2xl">
-            Please select your partner type below to begin. All responses are confidential.
+            Please select your partner type below to begin. All responses are confidential and will be used
+            solely to inform Canadian CTV ecosystem research.
           </p>
         </div>
 
@@ -76,7 +77,7 @@ export default function HomePage() {
         </div>
 
         <p className="text-center text-xs text-gray-400 mt-12">
-          Responses are confidential and used solely to inform CTV ecosystem research.
+          Responses are confidential and used solely to inform Canadian CTV ecosystem research.
         </p>
       </div>
     </main>

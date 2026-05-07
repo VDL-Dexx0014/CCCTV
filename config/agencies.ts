@@ -1,4 +1,4 @@
-// ─── AGENCY GROUPS & CLIENT-DIRECT SURVEY QUESTIONS ──────────────────────────
+// ─── AGENCY GROUPS & CLIENT-DIRECT SURVEY QUESTIONS — CANADIAN MARKET ────────
 // To make a question mandatory, set required: true.
 // To make it optional, set required: false.
 // ─────────────────────────────────────────────────────────────────────────────
@@ -8,9 +8,9 @@ import { contactSection } from './shared';
 
 const agenciesConfig: FormConfig = {
   formType: 'agencies',
-  title: 'Agency & Client-Direct Technology Survey',
+  title: 'Canadian Agency & Client-Direct Technology Survey',
   subtitle:
-    'We are mapping how agencies and brand-direct buyers plan, activate, and measure CTV campaigns today — and what you need from the ecosystem to achieve your goals. Your responses are confidential and will inform our ecosystem research. This survey takes approximately 10–15 minutes.',
+    'We are mapping how Canadian agencies and brand-direct buyers plan, activate, and measure CTV campaigns today — and what you need from the Canadian ecosystem to achieve your goals. Your responses are confidential and will inform our ecosystem research. This survey takes approximately 10–15 minutes.',
   sheetTab: 'Agencies',
   sections: [
     contactSection,
@@ -20,11 +20,11 @@ const agenciesConfig: FormConfig = {
       id: 'buying_stack',
       title: 'Current CTV Buying Stack',
       description:
-        'Tell us about the platforms and workflows you use to plan and activate CTV campaigns today.',
+        'Tell us about the platforms and workflows you use to plan and activate CTV campaigns in Canada today.',
       questions: [
         {
           id: 'a_dsps',
-          label: 'Which DSPs or buying platforms do you currently use for CTV?',
+          label: 'Which DSPs or buying platforms do you currently use for CTV in Canada?',
           type: 'checkbox-group',
           options: [
             'The Trade Desk',
@@ -34,7 +34,6 @@ const agenciesConfig: FormConfig = {
             'Yahoo DSP',
             'Samsung DSP',
             'Basis Technologies',
-            'Amobee / Tremor',
           ],
           allowOther: true,
           required: true,
@@ -42,32 +41,45 @@ const agenciesConfig: FormConfig = {
         },
         {
           id: 'a_buying_type',
-          label: 'How do you primarily buy CTV inventory?',
+          label: 'How do you primarily buy Canadian CTV inventory?',
           type: 'radio',
           options: [
             'Primarily programmatic (open auction / PMP)',
-            'Primarily direct (IO-based)',
+            'Primarily direct (IO-based with Canadian broadcasters)',
             'A mix of both — roughly equal',
             'Primarily programmatic guaranteed',
           ],
           required: true,
         },
         {
+          id: 'a_canadian_broadcasters',
+          label: 'Which Canadian broadcasters do you currently buy CTV inventory from — directly or programmatically?',
+          type: 'checkbox-group',
+          options: [
+            'Bell Media (CTV, TSN, RDS, Crave)',
+            'Corus Entertainment (Global, W Network, Specialty)',
+            'CBC / Radio-Canada',
+            'Rogers Sports & Media (Sportsnet, Citytv)',
+            'Quebecor / TVA / Noovo',
+            'DHX / WildBrain',
+          ],
+          allowOther: true,
+          required: true,
+          helpText: 'Select all that apply.',
+        },
+        {
           id: 'a_workflow',
-          label:
-            'Walk us through your end-to-end CTV campaign workflow — from planning and brief through to trafficking, brand safety, and reporting.',
+          label: 'Walk us through your end-to-end Canadian CTV campaign workflow — from planning and brief through to trafficking, brand safety, and reporting.',
           type: 'textarea',
           required: true,
-          placeholder:
-            'e.g. planning tools, audience targeting approach, activation platforms, brand safety checks, reporting stack…',
+          placeholder: 'e.g. planning tools used, how you target Canadian audiences, activation platforms, brand safety checks, reporting stack…',
         },
         {
           id: 'a_supply_access',
-          label:
-            'How do you currently access broadcaster and premium CTV inventory? Do you work directly with broadcasters, via SSPs, or both?',
+          label: 'How do you currently access Canadian broadcaster and premium CTV inventory? Do you buy directly from broadcasters, via SSPs, or both?',
           type: 'textarea',
           required: false,
-          placeholder: 'Describe how you access premium CTV supply and any preferred supply path arrangements…',
+          placeholder: 'Describe your Canadian supply access strategy and any preferred supply path arrangements…',
         },
       ],
     },
@@ -77,19 +89,26 @@ const agenciesConfig: FormConfig = {
       id: 'data',
       title: 'Data, Audience Management & Identity',
       description:
-        'Understanding your data stack and identity approach helps us identify how to best connect buyer and seller data across the CTV ecosystem.',
+        'Understanding your Canadian data stack, PIPEDA compliance approach, and identity strategy helps us identify how to connect buyer and seller data across the Canadian CTV ecosystem.',
       questions: [
         {
+          id: 'a_pipeda',
+          label: 'How does PIPEDA and Canada\'s privacy framework shape your data strategy and audience activation approach for CTV campaigns?',
+          type: 'textarea',
+          required: true,
+          placeholder: 'e.g. consent management requirements, restrictions on data use, differences from US campaigns, impact on targeting capabilities…',
+        },
+        {
           id: 'a_dmp_tools',
-          label: 'What data management, audience segmentation, or enrichment tools do you rely on?',
+          label: 'What data management, audience segmentation, or enrichment tools do you rely on for Canadian campaigns?',
           type: 'checkbox-group',
           options: [
-            'LiveRamp',
-            'Nielsen',
-            'Experian',
+            'LiveRamp Canada',
+            'Nielsen Canada',
+            'Environics Analytics',
+            'Experian Canada',
             'Acxiom',
             'Epsilon',
-            'IRI / Circana',
             'Lotame',
             'Adobe Audience Manager',
             'First-party data only',
@@ -99,9 +118,15 @@ const agenciesConfig: FormConfig = {
           helpText: 'Select all that apply.',
         },
         {
+          id: 'a_canadian_audiences',
+          label: 'How do you build and target Canadian audiences for CTV campaigns? Are there specific Canadian data sources or audience signals you rely on?',
+          type: 'textarea',
+          required: false,
+          placeholder: 'e.g. Environics segments, postal code targeting, language targeting for Quebec, telco data, broadcaster first-party data…',
+        },
+        {
           id: 'a_cleanroom_status',
-          label:
-            'Are you using any cleanroom technologies for data collaboration with media owners or other partners?',
+          label: 'Are you using any cleanroom technologies for data collaboration with Canadian media owners or other partners?',
           type: 'radio',
           options: [
             'Yes — in production',
@@ -129,7 +154,7 @@ const agenciesConfig: FormConfig = {
         },
         {
           id: 'a_identity',
-          label: 'What identity resolution tools or approaches are you currently using for CTV?',
+          label: 'What identity resolution tools or approaches are you currently using for Canadian CTV campaigns?',
           type: 'checkbox-group',
           options: [
             'UID2 / EUID',
@@ -143,47 +168,42 @@ const agenciesConfig: FormConfig = {
           required: true,
           helpText: 'Select all that apply.',
         },
-        {
-          id: 'a_first_party',
-          label:
-            'How are you activating client first-party data in CTV campaigns today? What platforms enable this?',
-          type: 'textarea',
-          required: false,
-          placeholder:
-            'e.g. CRM onboarding, clean room matching with broadcasters, DSP first-party data uploads…',
-        },
       ],
     },
 
     // ─── SECTION 3 ───────────────────────────────────────────────────────────
     {
       id: 'measurement',
-      title: 'Measurement, Attribution & Linear Convergence',
+      title: 'Measurement, Attribution & Canadian Currency',
       description:
-        'How you define, prove, and report CTV campaign value is a key part of understanding the ecosystem.',
+        'How you plan, prove, and report Canadian CTV campaign value — and your relationship with Numeris — is a key part of understanding the ecosystem.',
       questions: [
         {
-          id: 'a_measurement',
-          label:
-            'How do you currently measure and attribute CTV campaign performance? Which KPIs are most important to your clients?',
+          id: 'a_numeris',
+          label: 'How do you currently use Numeris data in your Canadian CTV planning and reporting? Where does it meet your needs and where does it fall short?',
           type: 'textarea',
           required: true,
-          placeholder:
-            'e.g. reach and frequency, brand lift, attention, outcomes/conversions, share of voice…',
+          placeholder: 'e.g. Numeris as planning currency, gaps in digital/CTV coverage, how you reconcile Numeris with DSP reporting…',
+        },
+        {
+          id: 'a_measurement',
+          label: 'Beyond Numeris, how do you measure and attribute Canadian CTV campaign performance? Which KPIs are most important to your clients?',
+          type: 'textarea',
+          required: true,
+          placeholder: 'e.g. reach and frequency, brand lift, attention, outcomes, share of voice, cross-screen deduplication…',
         },
         {
           id: 'a_measurement_partners',
-          label: 'Which measurement or verification partners do you currently work with?',
+          label: 'Which measurement or verification partners do you currently work with for Canadian campaigns?',
           type: 'checkbox-group',
           options: [
-            'Nielsen ONE',
+            'Numeris',
+            'Comscore Canada',
+            'Kantar Canada',
             'iSpot.tv',
-            'Kantar',
             'TVision',
             'VideoAmp',
             'Samba TV',
-            'BARB',
-            'Comscore',
             'DoubleVerify',
             'IAS',
           ],
@@ -192,21 +212,18 @@ const agenciesConfig: FormConfig = {
           helpText: 'Select all that apply.',
         },
         {
-          id: 'a_linear_convergence',
-          label:
-            'How are you approaching the convergence of linear TV and CTV in your planning and buying? Where do you see the biggest opportunity or challenge?',
+          id: 'a_french_market',
+          label: 'How do you approach CTV planning and buying for French-language Canadian audiences (Quebec)? Are there specific tools, partners, or challenges unique to this market?',
           type: 'textarea',
           required: false,
-          placeholder:
-            'e.g. unified planning tools, cross-screen reach deduplication, total TV buying, audience-based linear…',
+          placeholder: 'e.g. Quebec-specific buying approach, French-language targeting, TVA/Noovo relationships, francophone audience data sources…',
         },
         {
-          id: 'a_reporting_gaps',
-          label:
-            'Where do you see the biggest gaps in your current CTV reporting and attribution capabilities?',
+          id: 'a_linear_convergence',
+          label: 'How are you approaching the convergence of linear TV and CTV planning and buying for Canadian clients? Where do you see the biggest opportunity?',
           type: 'textarea',
           required: false,
-          placeholder: 'e.g. cross-device attribution, incrementality, standardised metrics across publishers…',
+          placeholder: 'e.g. unified planning across Canadian broadcasters, cross-screen reach deduplication, total TV buying approach in Canada…',
         },
       ],
     },
@@ -216,41 +233,42 @@ const agenciesConfig: FormConfig = {
       id: 'vision',
       title: 'Pain Points & Future Vision',
       description:
-        'Your perspective on current gaps and the ideal future state will help shape how the ecosystem develops to better serve buyers.',
+        'Your perspective on what is not working in the Canadian CTV market — and what an ideal future looks like — will help shape how the ecosystem develops.',
       questions: [
         {
           id: 'a_pain_points',
-          label: 'What are the biggest pain points or frustrations in your current CTV workflow?',
+          label: 'What are the biggest pain points or frustrations in your current Canadian CTV workflow?',
           type: 'textarea',
           required: true,
-          placeholder:
-            'e.g. publisher fragmentation, supply path complexity, inconsistent measurement, limited data access from broadcasters, frequency overdelivery…',
+          placeholder: 'e.g. smaller scale vs US market, Canadian broadcaster fragmentation, limited programmatic access to premium inventory, Numeris gaps, PIPEDA compliance complexity, frequency overdelivery across Canadian publishers…',
+        },
+        {
+          id: 'a_canada_vs_us',
+          label: 'Where does the Canadian CTV ecosystem lag behind the US market, and what would it take to close those gaps?',
+          type: 'textarea',
+          required: false,
+          placeholder: 'e.g. programmatic maturity, data collaboration, identity infrastructure, measurement currency, supply path transparency…',
         },
         {
           id: 'a_integration_needs',
-          label:
-            'Are there specific technology integrations, data partnerships, or workflow improvements that would significantly advance your CTV capability?',
+          label: 'Are there specific technology integrations, data partnerships, or workflow improvements that would significantly advance your Canadian CTV capability?',
           type: 'textarea',
           required: false,
-          placeholder:
-            'e.g. better broadcaster first-party data access, unified ID frameworks, simplified programmatic guaranteed pathways…',
+          placeholder: 'e.g. better Canadian broadcaster first-party data access, unified Canadian identity framework, simplified programmatic access to premium Canadian inventory…',
         },
         {
           id: 'a_ideal_system',
-          label:
-            'What would an ideal, unified CTV buying, data, and measurement system look like for your agency or client? Describe your target state.',
+          label: 'What would an ideal, unified Canadian CTV buying, data, and measurement system look like for your agency or client?',
           type: 'textarea',
           required: true,
-          placeholder:
-            'Describe what you would want across planning, activation, data access, identity, measurement, and reporting…',
+          placeholder: 'Describe what you would want across planning, activation, Canadian audience data, identity, measurement, and reporting…',
         },
         {
           id: 'a_freetext',
-          label:
-            'Is there anything else you would like to share about your technology challenges, priorities, or ambitions?',
+          label: 'Is there anything else you would like to share about your Canadian CTV technology challenges, priorities, or ambitions?',
           type: 'textarea',
           required: false,
-          placeholder: 'Any additional context, priorities, or things we should know…',
+          placeholder: 'Any additional context, priorities, or things we should know about the Canadian market…',
         },
       ],
     },

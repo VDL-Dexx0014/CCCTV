@@ -1,3 +1,7 @@
+# Google service account credentials — never commit
+*-d0f45d1db0a5.json
+ccctv-surveys-*.json
+
 /node_modules
 /.next/
 /out/
