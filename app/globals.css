@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  ─── BRAND TOKENS ────────────────────────────────────────────────────────────
+  Update these four variables to apply your brand colours across all forms.
+  --brand-cta        : button / progress bar colour
+  --brand-cta-text   : text colour on the button
+  --brand-heading    : heading text colour
+  --brand-accent     : links and focus rings
+  ─────────────────────────────────────────────────────────────────────────────
+*/
+:root {
+  --brand-cta: #111827;
+  --brand-cta-text: #ffffff;
+  --brand-heading: #111827;
+  --brand-accent: #374151;
+}
+
+@layer base {
+  body {
+    @apply text-gray-800 antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+}
+
+@layer components {
+  /* ── Form inputs ── */
+  .form-input {
+    @apply block w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm
+           text-gray-800 placeholder-gray-300 outline-none transition-colors
+           focus:border-gray-400 focus:ring-2 focus:ring-gray-100;
+  }
+
+  .form-input.has-error {
+    @apply border-red-400 focus:ring-red-100;
+  }
+
+  .form-radio,
+  .form-checkbox {
+    @apply h-4 w-4 cursor-pointer border-gray-300 text-gray-800
+           focus:ring-2 focus:ring-gray-200 focus:ring-offset-0;
+  }
+
+  .form-radio {
+    @apply rounded-full;
+  }
+
+  .form-checkbox {
+    @apply rounded;
+  }
+
+  /* ── Primary button ── */
+  .btn-primary {
+    @apply inline-flex cursor-pointer items-center gap-2 rounded-lg px-5 py-2.5
+           text-sm font-semibold transition-opacity;
+    background-color: var(--brand-cta);
+    color: var(--brand-cta-text);
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    opacity: 0.85;
+  }
+
+  .btn-primary:disabled {
+    @apply cursor-not-allowed opacity-50;
+  }
+
+  /* ── Ghost button ── */
+  .btn-ghost {
+    @apply inline-flex cursor-pointer items-center gap-1.5 text-sm text-gray-500
+           transition-colors hover:text-gray-800;
+  }
+}
