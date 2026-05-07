@@ -71,8 +71,7 @@ export default function SurveyForm({ config }: Props) {
         const err = await res.json().catch(() => ({}));
         throw new Error(err.error ?? 'Submission failed. Please try again.');
       }
-      setSubmitted(true);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.location.href = '/thank-you';
     } catch (e: unknown) {
       setSubmitError(e instanceof Error ? e.message : 'Something went wrong. Please try again.');
     } finally {
