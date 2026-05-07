@@ -20,10 +20,9 @@ export default function ThankYouPage() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h1 className="mb-3 text-2xl font-bold text-gray-900">Thank you</h1>
+        <h1 className="mb-3 text-2xl font-bold text-gray-900">Thank you for completing the survey</h1>
         <p className="mx-auto max-w-md text-sm text-gray-500 leading-relaxed">
-          Your responses have been submitted. We will be in touch as we develop our findings across the
-          Canadian CTV ecosystem. You are welcome to close this window.
+          Our team will be in touch to schedule our 1:1s.
         </p>
         <Link href="/" className="mt-8 inline-block text-xs text-gray-400 hover:text-gray-600 transition-colors">
           ← Back to survey home
